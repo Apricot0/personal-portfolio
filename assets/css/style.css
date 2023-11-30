@@ -579,7 +579,7 @@ main {
   overflow-x: auto;
   scroll-behavior: smooth;
   overscroll-behavior-inline: contain;
-  scroll-snap-type: inline mandatory;
+  scroll-snap-type: none;
 }
 
 .testimonials-item {
@@ -1859,7 +1859,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .contact-info :is(.contact-link) {
     white-space: nowrap;
-    overflow: hidden;
+    /* overflow: hidden; */
     text-overflow: ellipsis;
   }
 

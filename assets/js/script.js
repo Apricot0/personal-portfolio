@@ -1,5 +1,16 @@
 'use strict';
 
+const currentDate = new Date();
+
+// Format the date as "DD Month, YYYY"
+const formattedDate = currentDate.toLocaleDateString('en-US', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric'
+});
+
+// Set the formatted date as the content of the <time> element
+document.getElementById('currentDate').textContent = formattedDate;
 
 
 // element toggle function
@@ -138,6 +149,7 @@ for (let i = 0; i < formInputs.length; i++) {
 //--------------------PAGE NAV----------------//
 // page navigation variables
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
+console.log(navigationLinks);
 const main_page_group = document.querySelector(".main-page-group");
 const main_pages = main_page_group.querySelectorAll("[data-page]");
 const contact_page = document.querySelector(".contact");
@@ -159,22 +171,84 @@ const contact_page = document.querySelector(".contact");
 
 //   });
 // }
-for (let i=0; i<navigationLinks.length; i++) {
+for (let i = 0; i < navigationLinks.length; i++) {
   navigationLinks[i].addEventListener("click", function () {
+    // Remove "active" class from all navigation links
+    for (let j = 0; j < navigationLinks.length; j++) {
+      navigationLinks[j].classList.remove("active");
+    }
+
+    // Add "active" class to the clicked navigation link
+    this.classList.add("active");
+
+    // Your existing code for handling other actions based on the link clicked
     if (this.innerHTML.toLowerCase() === "contact") {
       contact_page.classList.add("active");
-      for (let i=0; i<main_pages.length; i++) {
-        main_pages[i].classList.remove("active");
-        navigationLinks[i].classList.remove("active");
+      for (let j = 0; j < main_pages.length; j++) {
+        main_pages[j].classList.remove("active");
       }
       window.scrollTo(0, 0);
     } else {
       contact_page.classList.remove("active");
-      for (let i=0; i<main_pages.length; i++) {
-        main_pages[i].classList.add("active");
+      for (let j = 0; j < main_pages.length; j++) {
+        main_pages[j].classList.add("active");
       }
-      window.scrollTo(0, 0);
+      // console.log(this.innerHTML.toLowerCase());
+      if (this.innerHTML.toLowerCase() === "about") {
+        const about = document.querySelector(".about");
+        document.documentElement.scrollIntoView({ behavior: "smooth" });
+      } else if (this.innerHTML.toLowerCase() === "cv") {
+        const experience = document.querySelector(".experience");
+        experience.scrollIntoView({ behavior: "smooth" });
+      } else if (this.innerHTML.toLowerCase() === "projects") {
+        const projects = document.querySelector(".projects");
+        projects.scrollIntoView({ behavior: "smooth" });
+      }
     }
-
   });
+}
+
+function openFileInBrowser(filePath, fileName) {
+  const link = document.createElement('a');
+  link.href = filePath;
+  link.target = '_blank'; // Open in a new tab/window
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+function downloadCV() {
+  const cvFilePath = '../assets/file/Qingguang_Zeng_resume.pdf';
+  const link = document.createElement('a');
+  link.href = cvFilePath;
+  link.download = 'qingguang_zeng_cv.pdf';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+function downloadPressRelease() {
+  // const release = '../assets/file/Press-release.pdf';
+  // const link = document.createElement('a');
+  // link.href = release;
+  // link.download = 'press_release.pdf';
+  // document.body.appendChild(link);
+  // link.click();
+  // document.body.removeChild(link);
+
+  const release = '../assets/file/Press-release.pdf';
+  openFileInBrowser(release, 'press_release.pdf');
+}
+
+function downloadInstruction() {
+  // const release = '../assets/file/Github_pages_Instruction.pdf';
+  // const link = document.createElement('a');
+  // link.href = release;
+  // link.download = 'Github_pages_Instruction.pdf';
+  // document.body.appendChild(link);
+  // link.click();
+  // document.body.removeChild(link);
+
+  const instruction = '../assets/file/Github_pages_Instruction.pdf';
+  openFileInBrowser(instruction, 'Github_pages_Instruction.pdf');
 }
