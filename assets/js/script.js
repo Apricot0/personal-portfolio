@@ -218,7 +218,7 @@ function openFileInBrowser(filePath, fileName) {
 }
 
 function downloadCV() {
-  const cvFilePath = './personal-portfolio/assets/file/Qingguang_Zeng_resume.pdf';
+  const cvFilePath = 'https://apricot0.github.io/personal-portfolio/assets/file/Qingguang_Zeng_resume.pdf';
   const link = document.createElement('a');
   link.href = cvFilePath;
   link.download = 'qingguang_zeng_cv.pdf';
@@ -236,7 +236,7 @@ function downloadPressRelease() {
   // link.click();
   // document.body.removeChild(link);
 
-  const release = './personal-portfolio/assets/file/Press-release.pdf';
+  const release = 'https://apricot0.github.io/personal-portfolio/assets/file/Press-release.pdf';
   openFileInBrowser(release, 'press_release.pdf');
 }
 
@@ -249,6 +249,6 @@ function downloadInstruction() {
   // link.click();
   // document.body.removeChild(link);
 
-  const instruction = './personal-portfolio/assets/file/Github_pages_Instruction.pdf';
+  const instruction = 'https://apricot0.github.io/personal-portfolio/assets/file/Github_pages_Instruction.pdf';
   openFileInBrowser(instruction, 'Github_pages_Instruction.pdf');
 }
