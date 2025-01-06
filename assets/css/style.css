@@ -25,9 +25,10 @@
 
   --bg-gradient-onyx: linear-gradient(
     to bottom right, 
-    hsl(240, 1%, 25%) 3%, 
-    hsl(0, 0%, 19%) 97%
+    hsl(0, 0%, 100%) 3%, 
+    hsl(0, 0%, 64%) 97%
   );
+
   --bg-gradient-jet: linear-gradient(
     to bottom right, 
     hsla(240, 1%, 18%, 0.251) 0%, 
@@ -596,6 +597,7 @@ main {
   border-radius: 14px;
   box-shadow: var(--shadow-1);
 }
+
 
 .testimonials-item-title { margin-bottom: 7px; }
 
@@ -1431,7 +1433,7 @@ textarea.form-input::-webkit-resizer { display: none; }
     border-radius: 20px;
   }
 
-  .testimonials-avatar-box img { width: 80px; }
+  .testimonials-avatar-box img { width: 80px;padding: 4px}
 
   .testimonials-item-title {
     margin-bottom: 10px;
@@ -1467,7 +1469,7 @@ textarea.form-input::-webkit-resizer { display: none; }
     margin-bottom: 0;
   }
 
-  .modal-avatar-box img { width: 65px; }
+  .modal-avatar-box img { width: 65px; padding:5px; }
 
   .modal-img-wrapper > img {
     display: block;
